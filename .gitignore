@@ -1,0 +1,101 @@
+# ─────────────────────────────────────────────
+# personal-software — .gitignore
+# Code is public. Data and secrets never are.
+# ─────────────────────────────────────────────
+
+# ── Secrets & environment ────────────────────
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.keystore
+*.jks
+keystore.properties
+secrets/
+.dev.vars              # Cloudflare Workers local secrets
+.vercel/
+.wrangler/
+
+# ── Personal data (never commit) ─────────────
+# Pulse events log, local databases
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+data/
+exports/
+
+# Answer flight recorder audio + transcripts
+recordings/
+*.wav
+*.m4a
+*.mp3
+*.ogg
+transcripts/
+
+# Real configs (commit config.example.json instead)
+config.json
+config.local.*
+!config.example.json
+companies.json         # hiring radar target list
+!companies.example.json
+
+# whisper.cpp model weights (large, downloadable)
+models/
+*.bin
+*.gguf
+
+# ── Node / frontend ──────────────────────────
+node_modules/
+dist/
+build/
+.vite/
+.turbo/
+coverage/
+*.tsbuildinfo
+.lighthouseci/
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ── Rust / Tauri ─────────────────────────────
+target/
+**/src-tauri/gen/schemas/
+**/src-tauri/WixTools/
+*.msi
+*.exe
+!**/fixtures/**/*.exe
+
+# ── Android / Kotlin / Gradle ────────────────
+.gradle/
+**/build/
+local.properties
+captures/
+.externalNativeBuild/
+.cxx/
+*.apk
+*.aab
+*.hprof
+
+# ── Editors & OS ─────────────────────────────
+.idea/
+*.iml
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+
+# ── Logs & temp ──────────────────────────────
+logs/
+*.log
+tmp/
+.cache/
